@@ -1,0 +1,3847 @@
+/* =========================================================
+   KERJASAMA BILATERAL
+   COMPLETE OCEAN LAYOUT
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Satisfy&display=swap');
+
+
+/* =========================================================
+   1. BODY + PAGE
+========================================================= */
+
+body {
+
+    margin: 0;
+
+    background: #43D4DF;
+
+}
+
+
+.bilateral-page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 60px 3%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    box-sizing: border-box;
+
+    background: #43D4DF;
+
+}
+
+
+/* =========================================================
+   2. OCEAN RECTANGLE
+========================================================= */
+
+.bilateral-ocean-box {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 2400px;
+
+    height: 900px;
+
+    border-radius: 35px;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #58DCE6 0%,
+
+            #35C8D6 45%,
+
+            #20B7C5 78%,
+
+            #12A8B8 100%
+
+        );
+
+    box-shadow:
+
+        0 12px 28px rgba(0, 90, 110, 0.15);
+
+    transition:
+
+        transform 0.45s ease,
+
+        box-shadow 0.45s ease;
+
+}
+
+
+/* RECTANGLE ZOOM */
+
+.bilateral-ocean-box:hover {
+
+    transform: scale(1.018);
+
+    box-shadow:
+
+        0 18px 40px rgba(0, 80, 100, 0.25);
+
+}
+
+
+/* =========================================================
+   3. WAVES
+========================================================= */
+
+.bilateral-ocean-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    z-index: 1;
+
+    top: 35px;
+
+    left: -15%;
+
+    width: 130%;
+
+    height: 210px;
+
+    background:
+
+        rgba(255, 255, 255, 0.18);
+
+    border-radius:
+
+        45% 55% 50% 50%;
+
+    transform: rotate(-4deg);
+
+    animation:
+
+        ocean-wave-one 10s ease-in-out infinite alternate;
+
+    pointer-events: none;
+
+}
+
+
+.bilateral-ocean-box::after {
+
+    content: "";
+
+    position: absolute;
+
+    z-index: 1;
+
+    top: 250px;
+
+    left: -15%;
+
+    width: 130%;
+
+    height: 200px;
+
+    background:
+
+        rgba(0, 255, 230, 0.10);
+
+    border-radius:
+
+        50% 45% 55% 50%;
+
+    transform: rotate(4deg);
+
+    animation:
+
+        ocean-wave-two 12s ease-in-out infinite alternate;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   4. WAVE ANIMATIONS
+========================================================= */
+
+@keyframes ocean-wave-one {
+
+    0% {
+
+        transform: translateX(-40px) rotate(-4deg);
+
+    }
+
+    100% {
+
+        transform: translateX(45px) rotate(3deg);
+
+    }
+
+}
+
+
+@keyframes ocean-wave-two {
+
+    0% {
+
+        transform: translateX(40px) rotate(4deg);
+
+    }
+
+    100% {
+
+        transform: translateX(-45px) rotate(-3deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   5. FLIP CARD
+========================================================= */
+
+.bilateral-card {
+
+    position: absolute;
+
+    z-index: 10;
+
+    top: 25px;
+
+    left: 5%;
+
+    width: 90%;
+
+    height: 750px;
+
+    transform-style: preserve-3d;
+
+    perspective: 1400px;
+
+    transition:
+
+        transform 0.95s cubic-bezier(0.2, 0.75, 0.2, 1);
+
+}
+
+
+/* FLIP EFFECT */
+
+.bilateral-ocean-box:hover
+.bilateral-card {
+
+    transform: rotateY(180deg);
+
+}
+
+
+/* =========================================================
+   6. FRONT + BACK
+========================================================= */
+
+.bilateral-front,
+.bilateral-back {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    border-radius: 28px;
+
+    backface-visibility: hidden;
+
+    -webkit-backface-visibility: hidden;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    background: transparent;
+
+}
+
+
+/* FRONT */
+
+.bilateral-front {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+/* BACK */
+
+.bilateral-back {
+
+    transform: rotateY(180deg);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    padding: 0 20px;
+
+}
+
+
+/* =========================================================
+   7. TITLES
+========================================================= */
+
+.bilateral-heading {
+
+    position: relative;
+
+    z-index: 20;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 12px;
+
+    flex-shrink: 0;
+
+}
+
+
+/* =========================================================
+   8. SATISY TITLE
+========================================================= */
+
+.bilateral-title {
+
+    font-family: "Satisfy", cursive;
+
+    font-size: 60px;
+
+    color: #F4A261;
+
+    text-align: center;
+
+    transition:
+
+        transform 0.45s ease,
+
+        text-shadow 0.45s ease;
+
+}
+
+
+/* TITLE ZOOM + GLOW */
+
+.bilateral-heading:hover
+.bilateral-title {
+
+    transform: scale(1.08);
+
+    text-shadow:
+
+        0 0 8px rgba(255, 255, 255, 0.85),
+
+        0 0 18px rgba(255, 255, 255, 0.65),
+
+        0 0 30px rgba(255, 255, 255, 0.4);
+
+}
+
+
+/* =========================================================
+   9. COUNTRY LABEL
+========================================================= */
+
+.bilateral-country {
+
+    font-family: "Delius", cursive;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    color: #E9896B;
+
+    background: #E9B949;
+
+    border-radius: 20px;
+
+    padding: 11px 25px;
+
+    text-align: center;
+
+    transition:
+
+        transform 0.45s ease,
+
+        box-shadow 0.45s ease;
+
+}
+
+
+/* COUNTRY LABEL GLOW */
+
+.bilateral-heading:hover
+.bilateral-country {
+
+    transform: scale(1.06);
+
+    box-shadow:
+
+        0 0 12px rgba(255, 255, 255, 0.45),
+
+        0 0 22px rgba(255, 255, 255, 0.3);
+
+}
+
+
+/* =========================================================
+   10. PICTURE GRID
+========================================================= */
+
+.bilateral-picture-grid {
+
+    position: relative;
+
+    z-index: 20;
+
+    width: 100%;
+
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: stretch;
+
+    gap: 28px;
+
+    padding: 15px 15px 30px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   11. PICTURE BOX
+========================================================= */
+
+.bilateral-photo {
+
+    position: relative;
+
+    flex: 1;
+
+    min-width: 0;
+
+    height: 100%;
+
+    border: 4px solid #FFE34D;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    box-shadow:
+
+        0 0 12px #FFE34D,
+
+        0 0 22px rgba(255, 227, 77, 0.65),
+
+        0 0 35px rgba(255, 227, 77, 0.35),
+
+        0 0 50px rgba(255, 227, 77, 0.15);
+
+    transition:
+
+        box-shadow 0.45s ease,
+
+        transform 0.45s ease;
+
+}
+
+
+/* EXTRA BORDER GLOW */
+
+.bilateral-photo:hover {
+
+    box-shadow:
+
+        0 0 12px #FFF176,
+
+        0 0 25px #FFE34D,
+
+        0 0 45px rgba(255, 227, 77, 0.95),
+
+        0 0 65px rgba(255, 227, 77, 0.65);
+
+}
+
+
+/* =========================================================
+   12. IMAGES
+========================================================= */
+
+.bilateral-photo img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+
+        opacity 0.7s ease,
+
+        transform 0.65s ease;
+
+}
+
+
+/* ORIGINAL IMAGE */
+
+.photo-original {
+
+    opacity: 1;
+
+    z-index: 1;
+
+}
+
+
+/* HOVER IMAGE */
+
+.photo-hover {
+
+    opacity: 0;
+
+    z-index: 2;
+
+}
+
+
+/* HOVER IMAGE APPEARS */
+
+.bilateral-photo:hover
+.photo-hover {
+
+    opacity: 1;
+
+}
+
+
+/* ORIGINAL IMAGE DISAPPEARS */
+
+.bilateral-photo:hover
+.photo-original {
+
+    opacity: 0;
+
+}
+
+
+/* =========================================================
+   13. PICTURE ZOOM
+========================================================= */
+
+.bilateral-photo:hover
+img {
+
+    transform: scale(1.07);
+
+}
+
+
+/* =========================================================
+   14. BACK SIDE TITLE
+========================================================= */
+
+.back-heading {
+
+    animation:
+
+        bilateral-title-float 4s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
+   15. BACK SIDE TEXT CONTAINER
+========================================================= */
+
+.bilateral-back-text {
+
+    position: relative;
+
+    z-index: 20;
+
+    width: 92%;
+
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    box-sizing: border-box;
+
+    padding: 20px 0 105px;
+
+    overflow: visible;
+
+    animation:
+
+        bilateral-text-float 3.5s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
+   16. ALL PARAGRAPHS — DELIUS + JUSTIFY
+========================================================= */
+
+.bilateral-floating-description {
+
+    font-family: "Delius", cursive;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    line-height: 1.75;
+
+    color: #E76D8A;
+
+    text-align: justify;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   17. FLOATING TEXT
+========================================================= */
+
+@keyframes bilateral-text-float {
+
+    0% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-10px);
+
+    }
+
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   18. FLOATING TITLE
+========================================================= */
+
+@keyframes bilateral-title-float {
+
+    0% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-7px);
+
+    }
+
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   19. OCEAN CREATURE DECORATIONS
+========================================================= */
+
+.bilateral-decoration {
+
+    position: absolute;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    animation:
+
+        ocean-creature-float 5s ease-in-out infinite;
+
+}
+
+
+/* FLOATING ANIMATION */
+
+@keyframes ocean-creature-float {
+
+    0% {
+
+        transform: translateY(0) rotate(-5deg);
+
+    }
+
+    50% {
+
+        transform: translateY(-15px) rotate(5deg);
+
+    }
+
+    100% {
+
+        transform: translateY(0) rotate(-5deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   20. CREATURE POSITIONS
+========================================================= */
+
+.decor-fish-one {
+
+    top: 8%;
+
+    left: 5%;
+
+    font-size: 35px;
+
+}
+
+
+.decor-fish-two {
+
+    top: 15%;
+
+    right: 6%;
+
+    font-size: 35px;
+
+    animation-delay: 1s;
+
+}
+
+
+.decor-jellyfish {
+
+    top: 45%;
+
+    left: 3%;
+
+    font-size: 35px;
+
+    animation-delay: 2s;
+
+}
+
+
+.decor-turtle {
+
+    top: 60%;
+
+    right: 5%;
+
+    font-size: 40px;
+
+    animation-delay: 1.5s;
+
+}
+
+
+.decor-octopus {
+
+    top: 62%;
+
+    left: 12%;
+
+    font-size: 38px;
+
+    animation-delay: 2.5s;
+
+}
+
+
+.decor-dolphin {
+
+    top: 38%;
+
+    right: 15%;
+
+    font-size: 38px;
+
+    animation-delay: 2s;
+
+}
+
+
+.decor-bubble-one {
+
+    top: 8%;
+
+    right: 30%;
+
+    font-size: 30px;
+
+    animation-delay: 0.5s;
+
+}
+
+
+.decor-bubble-two {
+
+    top: 40%;
+
+    right: 4%;
+
+    font-size: 30px;
+
+    animation-delay: 1.8s;
+
+}
+
+
+.decor-bubble-three {
+
+    top: 68%;
+
+    left: 40%;
+
+    font-size: 30px;
+
+    animation-delay: 3s;
+
+}
+
+
+.decor-starfish {
+
+    top: 72%;
+
+    left: 30%;
+
+    font-size: 35px;
+
+    animation-delay: 1.2s;
+
+}
+
+
+/* =========================================================
+   21. SAND FLOOR
+========================================================= */
+
+.bilateral-sand-floor {
+
+    position: absolute;
+
+    z-index: 6;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 100%;
+
+    height: 105px;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #F9DF9A 0%,
+
+            #F0C96D 45%,
+
+            #E4B35B 100%
+
+        );
+
+    border-radius:
+
+        48% 52% 0 0 /
+
+        18% 20% 0 0;
+
+}
+
+
+/* =========================================================
+   22. SHORELINE
+========================================================= */
+
+.bilateral-sand-floor::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 10px;
+
+    left: -5%;
+
+    width: 110%;
+
+    height: 35px;
+
+    background: #FCE6AC;
+
+    border-radius: 50%;
+
+}
+
+
+/* =========================================================
+   23. CORALS
+========================================================= */
+
+.bilateral-coral {
+
+    position: absolute;
+
+    bottom: 35px;
+
+    z-index: 7;
+
+    animation:
+
+        sand-decoration-float 4s ease-in-out infinite;
+
+}
+
+
+.coral-one {
+
+    left: 3%;
+
+    font-size: 50px;
+
+}
+
+
+.coral-two {
+
+    left: 25%;
+
+    font-size: 44px;
+
+    animation-delay: 1s;
+
+}
+
+
+.coral-three {
+
+    right: 20%;
+
+    font-size: 45px;
+
+    animation-delay: 1.5s;
+
+}
+
+
+.coral-four {
+
+    right: 3%;
+
+    font-size: 50px;
+
+    animation-delay: 2s;
+
+}
+
+
+.coral-five {
+
+    left: 65%;
+
+    font-size: 45px;
+
+    animation-delay: 2.5s;
+
+}
+
+
+.coral-six {
+
+    left: 45%;
+
+    font-size: 42px;
+
+    animation-delay: 1.2s;
+
+}
+
+
+/* =========================================================
+   24. CREATURES ON SAND
+========================================================= */
+
+.bilateral-resting-creature {
+
+    position: absolute;
+
+    z-index: 8;
+
+    bottom: 10px;
+
+    animation:
+
+        sand-decoration-float 4.5s ease-in-out infinite;
+
+}
+
+
+.crab-one {
+
+    left: 15%;
+
+    font-size: 30px;
+
+}
+
+
+.shell-one {
+
+    left: 35%;
+
+    font-size: 30px;
+
+    animation-delay: 1s;
+
+}
+
+
+.star-one {
+
+    right: 15%;
+
+    font-size: 30px;
+
+    animation-delay: 2s;
+
+}
+
+
+.shell-two {
+
+    right: 38%;
+
+    font-size: 30px;
+
+    animation-delay: 1.5s;
+
+}
+
+
+.crab-two {
+
+    right: 5%;
+
+    font-size: 32px;
+
+    animation-delay: 2.5s;
+
+}
+
+
+/* =========================================================
+   25. SAND FLOATING ANIMATION
+========================================================= */
+
+@keyframes sand-decoration-float {
+
+    0% {
+
+        transform: translateY(0) rotate(-3deg);
+
+    }
+
+    50% {
+
+        transform: translateY(-6px) rotate(3deg);
+
+    }
+
+    100% {
+
+        transform: translateY(0) rotate(-3deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   26. RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+
+    .bilateral-page {
+
+        padding: 35px 3%;
+
+    }
+
+
+    .bilateral-ocean-box {
+
+        height: 700px;
+
+    }
+
+
+    .bilateral-card {
+
+        top: 20px;
+
+        left: 4%;
+
+        width: 92%;
+
+        height: 730px;
+
+    }
+
+
+    .bilateral-title {
+
+        font-size: 36px;
+
+    }
+
+
+    .bilateral-country {
+
+        font-size: 19px;
+
+        padding: 10px 18px;
+
+    }
+
+
+    .bilateral-picture-grid {
+
+        gap: 15px;
+
+        padding: 20px 10px 25px;
+
+    }
+
+
+    .bilateral-floating-description {
+
+        font-size: 19px;
+
+        line-height: 1.65;
+
+    }
+
+
+    .bilateral-back-text {
+
+        padding-bottom: 90px;
+
+    }
+
+
+}
+
+
+@media (max-width: 600px) {
+
+
+    .bilateral-page {
+
+        padding: 20px 3%;
+
+    }
+
+
+    .bilateral-ocean-box {
+
+        height: 650px;
+
+    }
+
+
+    .bilateral-card {
+
+        top: 15px;
+
+        left: 3%;
+
+        width: 94%;
+
+        height: 540px;
+
+    }
+
+
+    .bilateral-title {
+
+        font-size: 30px;
+
+    }
+
+
+    .bilateral-country {
+
+        font-size: 16px;
+
+        padding: 8px 12px;
+
+    }
+
+
+    .bilateral-picture-grid {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        padding: 15px 10px 20px;
+
+    }
+
+
+    .bilateral-photo {
+
+        width: 100%;
+
+        flex: 1;
+
+        min-height: 0;
+
+        border-width: 3px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .bilateral-back {
+
+        padding: 0 12px;
+
+    }
+
+
+    .bilateral-back-text {
+
+        width: 95%;
+
+        gap: 15px;
+
+        padding-bottom: 75px;
+
+    }
+
+
+    .bilateral-floating-description {
+
+        font-size: 15px;
+
+        line-height: 1.5;
+
+    }
+
+
+    .bilateral-sand-floor {
+
+        height: 85px;
+
+    }
+
+
+    .bilateral-coral {
+
+        font-size: 32px;
+
+    }
+
+
+    .bilateral-resting-creature {
+
+        font-size: 24px;
+
+    }
+
+
+    .bilateral-decoration {
+
+        font-size: 25px;
+
+    }
+
+
+}
+
+/* =========================================================
+   BILATERAL PHOTOS — ZOOM + IMAGE TRANSITION REFINEMENT
+   ADDITION ONLY
+========================================================= */
+
+
+/* KEEP THE FRONT SIDE VISIBLE WHILE HOVERING OVER A PHOTO */
+
+.bilateral-ocean-box:has(.bilateral-photo:hover)
+.bilateral-card {
+
+    transform: rotateY(0deg);
+
+}
+
+
+/* SMOOTH PHOTO ZOOM */
+
+.bilateral-photo img {
+
+    transition:
+
+        opacity 0.7s ease-in-out,
+
+        transform 0.65s ease-in-out;
+
+}
+
+
+/* ZOOM BOTH PHOTOS ON HOVER */
+
+.bilateral-photo:hover img {
+
+    transform: scale(1.12);
+
+}
+
+
+/* SMOOTH CROSSFADE TO THE SECOND PHOTO */
+
+.bilateral-photo .photo-hover {
+
+    opacity: 0;
+
+}
+
+
+.bilateral-photo:hover .photo-hover {
+
+    opacity: 1;
+
+}
+
+
+.bilateral-photo:hover .photo-original {
+
+    opacity: 0;
+
+}
+
+
+/* =========================================================
+   KERJASAMA REGIONAL
+   COMPLETE OCEAN LAYOUT
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Satisfy&display=swap');
+
+
+/* =========================================================
+   1. BODY + PAGE
+========================================================= */
+
+body {
+    margin: 0;
+    background: #43D4DF;
+}
+
+.regional-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 60px 3%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    background: #43D4DF;
+}
+
+
+/* =========================================================
+   2. OCEAN RECTANGLE
+========================================================= */
+
+.regional-ocean-box {
+    position: relative;
+    width: 100%;
+    max-width: 2400px;
+    height: 900px;
+    border-radius: 35px;
+    overflow: hidden;
+    isolation: isolate;
+
+    background:
+        linear-gradient(
+            180deg,
+            #58DCE6 0%,
+            #35C8D6 45%,
+            #20B7C5 78%,
+            #12A8B8 100%
+        );
+
+    box-shadow:
+        0 12px 28px rgba(0, 90, 110, 0.15);
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+
+/* RECTANGLE ZOOM */
+
+.regional-ocean-box:hover {
+    transform: scale(1.018);
+
+    box-shadow:
+        0 18px 40px rgba(0, 80, 100, 0.25);
+}
+
+
+/* =========================================================
+   3. WAVES
+========================================================= */
+
+.regional-ocean-box::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 35px;
+    left: -15%;
+    width: 130%;
+    height: 210px;
+
+    background:
+        rgba(255, 255, 255, 0.18);
+
+    border-radius:
+        45% 55% 50% 50%;
+
+    transform: rotate(-4deg);
+
+    animation:
+        regional-ocean-wave-one 10s ease-in-out infinite alternate;
+
+    pointer-events: none;
+}
+
+
+.regional-ocean-box::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 250px;
+    left: -15%;
+    width: 130%;
+    height: 200px;
+
+    background:
+        rgba(0, 255, 230, 0.10);
+
+    border-radius:
+        50% 45% 55% 50%;
+
+    transform: rotate(4deg);
+
+    animation:
+        regional-ocean-wave-two 12s ease-in-out infinite alternate;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   4. WAVE ANIMATIONS
+========================================================= */
+
+@keyframes regional-ocean-wave-one {
+    0% {
+        transform: translateX(-40px) rotate(-4deg);
+    }
+
+    100% {
+        transform: translateX(45px) rotate(3deg);
+    }
+}
+
+
+@keyframes regional-ocean-wave-two {
+    0% {
+        transform: translateX(40px) rotate(4deg);
+    }
+
+    100% {
+        transform: translateX(-45px) rotate(-3deg);
+    }
+}
+
+
+/* =========================================================
+   5. FLIP CARD
+========================================================= */
+
+.regional-card {
+    position: absolute;
+    z-index: 10;
+    top: 25px;
+    left: 5%;
+    width: 90%;
+    height: 750px;
+
+    transform-style: preserve-3d;
+    perspective: 1400px;
+
+    transition:
+        transform 0.95s cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+
+
+/* FLIP EFFECT */
+
+.regional-ocean-box:hover
+.regional-card {
+    transform: rotateY(180deg);
+}
+
+
+/* =========================================================
+   6. FRONT + BACK
+========================================================= */
+
+.regional-front,
+.regional-back {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 28px;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    overflow: hidden;
+    box-sizing: border-box;
+    background: transparent;
+}
+
+
+/* FRONT */
+
+.regional-front {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* BACK */
+
+.regional-back {
+    transform: rotateY(180deg);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 0 20px;
+}
+
+
+/* =========================================================
+   7. TITLES
+========================================================= */
+
+.regional-heading {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+    margin-top: 12px;
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   8. SATISFY TITLE
+========================================================= */
+
+.regional-title {
+    font-family: "Satisfy", cursive;
+    font-size: 60px;
+    color: #F4A261;
+    text-align: center;
+
+    transition:
+        transform 0.45s ease,
+        text-shadow 0.45s ease;
+}
+
+
+/* TITLE ZOOM + GLOW */
+
+.regional-heading:hover
+.regional-title {
+    transform: scale(1.08);
+
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.85),
+        0 0 18px rgba(255, 255, 255, 0.65),
+        0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+
+/* =========================================================
+   9. COUNTRY LABEL
+========================================================= */
+
+.regional-country {
+    font-family: "Delius", cursive;
+    font-size: 30px;
+    font-weight: bold;
+    color: #E9896B;
+    background: #E9B949;
+
+    border-radius: 20px;
+    padding: 11px 25px;
+    text-align: center;
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+
+/* COUNTRY LABEL GLOW */
+
+.regional-heading:hover
+.regional-country {
+    transform: scale(1.06);
+
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.45),
+        0 0 22px rgba(255, 255, 255, 0.3);
+}
+
+
+/* =========================================================
+   10. PICTURE GRID
+========================================================= */
+
+.regional-picture-grid {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+
+    gap: 28px;
+    padding: 15px 15px 30px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   11. PICTURE BOX
+========================================================= */
+
+.regional-photo {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+
+    border: 4px solid #FFE34D;
+    border-radius: 25px;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    box-shadow:
+        0 0 12px #FFE34D,
+        0 0 22px rgba(255, 227, 77, 0.65),
+        0 0 35px rgba(255, 227, 77, 0.35),
+        0 0 50px rgba(255, 227, 77, 0.15);
+
+    transition:
+        box-shadow 0.45s ease,
+        transform 0.45s ease;
+}
+
+
+/* EXTRA BORDER GLOW */
+
+.regional-photo:hover {
+    box-shadow:
+        0 0 12px #FFF176,
+        0 0 25px #FFE34D,
+        0 0 45px rgba(255, 227, 77, 0.95),
+        0 0 65px rgba(255, 227, 77, 0.65);
+}
+
+
+/* =========================================================
+   12. IMAGES
+========================================================= */
+
+.regional-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    display: block;
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.65s ease;
+}
+
+
+/* ORIGINAL IMAGE */
+
+.photo-original {
+    opacity: 1;
+    z-index: 1;
+}
+
+
+/* HOVER IMAGE */
+
+.photo-hover {
+    opacity: 0;
+    z-index: 2;
+}
+
+
+/* HOVER IMAGE APPEARS */
+
+.regional-photo:hover
+.photo-hover {
+    opacity: 1;
+}
+
+
+/* ORIGINAL IMAGE DISAPPEARS */
+
+.regional-photo:hover
+.photo-original {
+    opacity: 0;
+}
+
+
+/* =========================================================
+   13. PICTURE ZOOM
+========================================================= */
+
+.regional-photo:hover
+img {
+    transform: scale(1.07);
+}
+
+
+/* =========================================================
+   14. BACK SIDE TITLE
+========================================================= */
+
+.back-heading {
+    animation:
+        regional-title-float 4s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   15. BACK SIDE TEXT CONTAINER
+========================================================= */
+
+.regional-back-text {
+    position: relative;
+    z-index: 20;
+    width: 92%;
+    flex: 1;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+
+    gap: 25px;
+    box-sizing: border-box;
+    padding: 20px 0 105px;
+    overflow: visible;
+
+    animation:
+        regional-text-float 3.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   16. ALL PARAGRAPHS — DELIUS + JUSTIFY
+========================================================= */
+
+.regional-floating-description {
+    font-family: "Delius", cursive;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1.75;
+    color: #E76D8A;
+
+    text-align: justify;
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   17. FLOATING TEXT
+========================================================= */
+
+@keyframes regional-text-float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   18. FLOATING TITLE
+========================================================= */
+
+@keyframes regional-title-float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   19. OCEAN CREATURE DECORATIONS
+========================================================= */
+
+.regional-decoration {
+    position: absolute;
+    z-index: 3;
+    pointer-events: none;
+
+    animation:
+        regional-ocean-creature-float 5s ease-in-out infinite;
+}
+
+
+/* FLOATING ANIMATION */
+
+@keyframes regional-ocean-creature-float {
+    0% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+}
+
+
+/* =========================================================
+   20. CREATURE POSITIONS
+========================================================= */
+
+.decor-fish-one {
+    top: 8%;
+    left: 5%;
+    font-size: 35px;
+}
+
+
+.decor-fish-two {
+    top: 15%;
+    right: 6%;
+    font-size: 35px;
+    animation-delay: 1s;
+}
+
+
+.decor-jellyfish {
+    top: 45%;
+    left: 3%;
+    font-size: 35px;
+    animation-delay: 2s;
+}
+
+
+.decor-turtle {
+    top: 60%;
+    right: 5%;
+    font-size: 40px;
+    animation-delay: 1.5s;
+}
+
+
+.decor-octopus {
+    top: 62%;
+    left: 12%;
+    font-size: 38px;
+    animation-delay: 2.5s;
+}
+
+
+.decor-dolphin {
+    top: 38%;
+    right: 15%;
+    font-size: 38px;
+    animation-delay: 2s;
+}
+
+
+.decor-bubble-one {
+    top: 8%;
+    right: 30%;
+    font-size: 30px;
+    animation-delay: 0.5s;
+}
+
+
+.decor-bubble-two {
+    top: 40%;
+    right: 4%;
+    font-size: 30px;
+    animation-delay: 1.8s;
+}
+
+
+.decor-bubble-three {
+    top: 68%;
+    left: 40%;
+    font-size: 30px;
+    animation-delay: 3s;
+}
+
+
+.decor-starfish {
+    top: 72%;
+    left: 30%;
+    font-size: 35px;
+    animation-delay: 1.2s;
+}
+
+
+/* =========================================================
+   21. SAND FLOOR
+========================================================= */
+
+.regional-sand-floor {
+    position: absolute;
+    z-index: 6;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 105px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #F9DF9A 0%,
+            #F0C96D 45%,
+            #E4B35B 100%
+        );
+
+    border-radius:
+        48% 52% 0 0 /
+        18% 20% 0 0;
+}
+
+
+/* =========================================================
+   22. SHORELINE
+========================================================= */
+
+.regional-sand-floor::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -5%;
+    width: 110%;
+    height: 35px;
+
+    background: #FCE6AC;
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   23. CORALS
+========================================================= */
+
+.regional-coral {
+    position: absolute;
+    bottom: 35px;
+    z-index: 7;
+
+    animation:
+        regional-sand-decoration-float 4s ease-in-out infinite;
+}
+
+
+.coral-one {
+    left: 3%;
+    font-size: 50px;
+}
+
+
+.coral-two {
+    left: 25%;
+    font-size: 44px;
+    animation-delay: 1s;
+}
+
+
+.coral-three {
+    right: 20%;
+    font-size: 45px;
+    animation-delay: 1.5s;
+}
+
+
+.coral-four {
+    right: 3%;
+    font-size: 50px;
+    animation-delay: 2s;
+}
+
+
+.coral-five {
+    left: 65%;
+    font-size: 45px;
+    animation-delay: 2.5s;
+}
+
+
+.coral-six {
+    left: 45%;
+    font-size: 42px;
+    animation-delay: 1.2s;
+}
+
+
+/* =========================================================
+   24. CREATURES ON SAND
+========================================================= */
+
+.regional-resting-creature {
+    position: absolute;
+    z-index: 8;
+    bottom: 10px;
+
+    animation:
+        regional-sand-decoration-float 4.5s ease-in-out infinite;
+}
+
+
+.crab-one {
+    left: 15%;
+    font-size: 30px;
+}
+
+
+.shell-one {
+    left: 35%;
+    font-size: 30px;
+    animation-delay: 1s;
+}
+
+
+.star-one {
+    right: 15%;
+    font-size: 30px;
+    animation-delay: 2s;
+}
+
+
+.shell-two {
+    right: 38%;
+    font-size: 30px;
+    animation-delay: 1.5s;
+}
+
+
+.crab-two {
+    right: 5%;
+    font-size: 32px;
+    animation-delay: 2.5s;
+}
+
+
+/* =========================================================
+   25. SAND FLOATING ANIMATION
+========================================================= */
+
+@keyframes regional-sand-decoration-float {
+    0% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-6px) rotate(3deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+}
+
+
+/* =========================================================
+   26. RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .regional-page {
+        padding: 35px 3%;
+    }
+
+
+    .regional-ocean-box {
+        height: 700px;
+    }
+
+
+    .regional-card {
+        top: 20px;
+        left: 4%;
+        width: 92%;
+        height: 730px;
+    }
+
+
+    .regional-title {
+        font-size: 36px;
+    }
+
+
+    .regional-country {
+        font-size: 19px;
+        padding: 10px 18px;
+    }
+
+
+    .regional-picture-grid {
+        gap: 15px;
+        padding: 20px 10px 25px;
+    }
+
+
+    .regional-floating-description {
+        font-size: 19px;
+        line-height: 1.65;
+    }
+
+
+    .regional-back-text {
+        padding-bottom: 90px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .regional-page {
+        padding: 20px 3%;
+    }
+
+
+    .regional-ocean-box {
+        height: 650px;
+    }
+
+
+    .regional-card {
+        top: 15px;
+        left: 3%;
+        width: 94%;
+        height: 540px;
+    }
+
+
+    .regional-title {
+        font-size: 30px;
+    }
+
+
+    .regional-country {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+
+
+    .regional-picture-grid {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 10px 20px;
+    }
+
+
+    .regional-photo {
+        width: 100%;
+        flex: 1;
+        min-height: 0;
+        border-width: 3px;
+        border-radius: 18px;
+    }
+
+
+    .regional-back {
+        padding: 0 12px;
+    }
+
+
+    .regional-back-text {
+        width: 95%;
+        gap: 15px;
+        padding-bottom: 75px;
+    }
+
+
+    .regional-floating-description {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+
+    .regional-sand-floor {
+        height: 85px;
+    }
+
+
+    .regional-coral {
+        font-size: 32px;
+    }
+
+
+    .regional-resting-creature {
+        font-size: 24px;
+    }
+
+
+    .regional-decoration {
+        font-size: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   REGIONAL PHOTOS — ZOOM + IMAGE TRANSITION REFINEMENT
+========================================================= */
+
+
+/* KEEP THE FRONT SIDE VISIBLE WHILE HOVERING OVER A PHOTO */
+
+.regional-ocean-box:has(.regional-photo:hover)
+.regional-card {
+    transform: rotateY(0deg);
+}
+
+
+/* SMOOTH PHOTO ZOOM */
+
+.regional-photo img {
+    transition:
+        opacity 0.7s ease-in-out,
+        transform 0.65s ease-in-out;
+}
+
+
+/* ZOOM BOTH PHOTOS ON HOVER */
+
+.regional-photo:hover img {
+    transform: scale(1.12);
+}
+
+
+/* SMOOTH CROSSFADE TO THE SECOND PHOTO */
+
+.regional-photo .photo-hover {
+    opacity: 0;
+}
+
+
+.regional-photo:hover .photo-hover {
+    opacity: 1;
+}
+
+
+.regional-photo:hover .photo-original {
+    opacity: 0;
+}
+
+/* =========================================================
+   KERJASAMA MULTILATERAL
+   COMPLETE OCEAN LAYOUT
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Satisfy&display=swap');
+
+
+/* =========================================================
+   1. BODY + PAGE
+========================================================= */
+
+body {
+
+    margin: 0;
+
+    background: #43D4DF;
+
+}
+
+
+.multilateral-page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 60px 3%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    box-sizing: border-box;
+
+    background: #43D4DF;
+
+}
+
+
+/* =========================================================
+   2. OCEAN RECTANGLE
+========================================================= */
+
+.multilateral-ocean-box {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 2400px;
+
+    height: 900px;
+
+    border-radius: 35px;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #58DCE6 0%,
+
+            #35C8D6 45%,
+
+            #20B7C5 78%,
+
+            #12A8B8 100%
+
+        );
+
+    box-shadow:
+
+        0 12px 28px rgba(0, 90, 110, 0.15);
+
+    transition:
+
+        transform 0.45s ease,
+
+        box-shadow 0.45s ease;
+
+}
+
+
+/* RECTANGLE ZOOM */
+
+.multilateral-ocean-box:hover {
+
+    transform: scale(1.018);
+
+    box-shadow:
+
+        0 18px 40px rgba(0, 80, 100, 0.25);
+
+}
+
+
+/* =========================================================
+   3. WAVES
+========================================================= */
+
+.multilateral-ocean-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    z-index: 1;
+
+    top: 35px;
+
+    left: -15%;
+
+    width: 130%;
+
+    height: 210px;
+
+    background:
+
+        rgba(255, 255, 255, 0.18);
+
+    border-radius:
+
+        45% 55% 50% 50%;
+
+    transform: rotate(-4deg);
+
+    animation:
+
+        multilateral-wave-one 10s ease-in-out infinite alternate;
+
+    pointer-events: none;
+
+}
+
+
+.multilateral-ocean-box::after {
+
+    content: "";
+
+    position: absolute;
+
+    z-index: 1;
+
+    top: 250px;
+
+    left: -15%;
+
+    width: 130%;
+
+    height: 200px;
+
+    background:
+
+        rgba(0, 255, 230, 0.10);
+
+    border-radius:
+
+        50% 45% 55% 50%;
+
+    transform: rotate(4deg);
+
+    animation:
+
+        multilateral-wave-two 12s ease-in-out infinite alternate;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   4. WAVE ANIMATIONS
+========================================================= */
+
+@keyframes multilateral-wave-one {
+
+    0% {
+
+        transform: translateX(-40px) rotate(-4deg);
+
+    }
+
+    100% {
+
+        transform: translateX(45px) rotate(3deg);
+
+    }
+
+}
+
+
+@keyframes multilateral-wave-two {
+
+    0% {
+
+        transform: translateX(40px) rotate(4deg);
+
+    }
+
+    100% {
+
+        transform: translateX(-45px) rotate(-3deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   5. FLIP CARD
+========================================================= */
+
+.multilateral-card {
+
+    position: absolute;
+
+    z-index: 10;
+
+    top: 25px;
+
+    left: 5%;
+
+    width: 90%;
+
+    height: 750px;
+
+    transform-style: preserve-3d;
+
+    perspective: 1400px;
+
+    transition:
+
+        transform 0.95s cubic-bezier(0.2, 0.75, 0.2, 1);
+
+}
+
+
+/* FLIP EFFECT */
+
+.multilateral-ocean-box:hover
+.multilateral-card {
+
+    transform: rotateY(180deg);
+
+}
+
+
+/* =========================================================
+   6. FRONT + BACK
+========================================================= */
+
+.multilateral-front,
+.multilateral-back {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    border-radius: 28px;
+
+    backface-visibility: hidden;
+
+    -webkit-backface-visibility: hidden;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    background: transparent;
+
+}
+
+
+/* FRONT */
+
+.multilateral-front {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+/* BACK */
+
+.multilateral-back {
+
+    transform: rotateY(180deg);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    padding: 0 20px;
+
+}
+
+
+/* =========================================================
+   7. TITLES
+========================================================= */
+
+.multilateral-heading {
+
+    position: relative;
+
+    z-index: 20;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 12px;
+
+    flex-shrink: 0;
+
+}
+
+
+/* =========================================================
+   8. SATISFY TITLE
+========================================================= */
+
+.multilateral-title {
+
+    font-family: "Satisfy", cursive;
+
+    font-size: 60px;
+
+    color: #F4A261;
+
+    text-align: center;
+
+    transition:
+
+        transform 0.45s ease,
+
+        text-shadow 0.45s ease;
+
+}
+
+
+/* TITLE ZOOM + GLOW */
+
+.multilateral-heading:hover
+.multilateral-title {
+
+    transform: scale(1.08);
+
+    text-shadow:
+
+        0 0 8px rgba(255, 255, 255, 0.85),
+
+        0 0 18px rgba(255, 255, 255, 0.65),
+
+        0 0 30px rgba(255, 255, 255, 0.4);
+
+}
+
+
+/* =========================================================
+   9. COUNTRY LABEL
+========================================================= */
+
+.multilateral-country {
+
+    font-family: "Delius", cursive;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    color: #E9896B;
+
+    background: #E9B949;
+
+    border-radius: 20px;
+
+    padding: 11px 25px;
+
+    text-align: center;
+
+    transition:
+
+        transform 0.45s ease,
+
+        box-shadow 0.45s ease;
+
+}
+
+
+/* COUNTRY LABEL GLOW */
+
+.multilateral-heading:hover
+.multilateral-country {
+
+    transform: scale(1.06);
+
+    box-shadow:
+
+        0 0 12px rgba(255, 255, 255, 0.45),
+
+        0 0 22px rgba(255, 255, 255, 0.3);
+
+}
+
+
+/* =========================================================
+   10. PICTURE GRID
+========================================================= */
+
+.multilateral-picture-grid {
+
+    position: relative;
+
+    z-index: 20;
+
+    width: 100%;
+
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: stretch;
+
+    gap: 28px;
+
+    padding: 15px 15px 30px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   11. PICTURE BOX
+========================================================= */
+
+.multilateral-photo {
+
+    position: relative;
+
+    flex: 1;
+
+    min-width: 0;
+
+    height: 100%;
+
+    border: 4px solid #FFE34D;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    box-shadow:
+
+        0 0 12px #FFE34D,
+
+        0 0 22px rgba(255, 227, 77, 0.65),
+
+        0 0 35px rgba(255, 227, 77, 0.35),
+
+        0 0 50px rgba(255, 227, 77, 0.15);
+
+    transition:
+
+        box-shadow 0.45s ease,
+
+        transform 0.45s ease;
+
+}
+
+
+/* EXTRA BORDER GLOW */
+
+.multilateral-photo:hover {
+
+    box-shadow:
+
+        0 0 12px #FFF176,
+
+        0 0 25px #FFE34D,
+
+        0 0 45px rgba(255, 227, 77, 0.95),
+
+        0 0 65px rgba(255, 227, 77, 0.65);
+
+}
+
+
+/* =========================================================
+   12. IMAGES
+========================================================= */
+
+.multilateral-photo img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+
+        opacity 0.7s ease,
+
+        transform 0.65s ease;
+
+}
+
+
+/* ORIGINAL IMAGE */
+
+.photo-original {
+
+    opacity: 1;
+
+    z-index: 1;
+
+}
+
+
+/* HOVER IMAGE */
+
+.photo-hover {
+
+    opacity: 0;
+
+    z-index: 2;
+
+}
+
+
+/* HOVER IMAGE APPEARS */
+
+.multilateral-photo:hover
+.photo-hover {
+
+    opacity: 1;
+
+}
+
+
+/* ORIGINAL IMAGE DISAPPEARS */
+
+.multilateral-photo:hover
+.photo-original {
+
+    opacity: 0;
+
+}
+
+
+/* =========================================================
+   13. PICTURE ZOOM
+========================================================= */
+
+.multilateral-photo:hover
+img {
+
+    transform: scale(1.07);
+
+}
+
+
+/* =========================================================
+   14. BACK SIDE TITLE
+========================================================= */
+
+.back-heading {
+
+    animation:
+
+        multilateral-title-float 4s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
+   15. BACK SIDE TEXT CONTAINER
+========================================================= */
+
+.multilateral-back-text {
+
+    position: relative;
+
+    z-index: 20;
+
+    width: 92%;
+
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    box-sizing: border-box;
+
+    padding: 20px 0 105px;
+
+    overflow: visible;
+
+    animation:
+
+        multilateral-text-float 3.5s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
+   16. ALL PARAGRAPHS — DELIUS + JUSTIFY
+========================================================= */
+
+.multilateral-floating-description {
+
+    font-family: "Delius", cursive;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    line-height: 1.75;
+
+    color: #E76D8A;
+
+    text-align: justify;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   17. FLOATING TEXT
+========================================================= */
+
+@keyframes multilateral-text-float {
+
+    0% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-10px);
+
+    }
+
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   18. FLOATING TITLE
+========================================================= */
+
+@keyframes multilateral-title-float {
+
+    0% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-7px);
+
+    }
+
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   19. OCEAN CREATURE DECORATIONS
+========================================================= */
+
+.multilateral-decoration {
+
+    position: absolute;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    animation:
+
+        multilateral-creature-float 5s ease-in-out infinite;
+
+}
+
+
+/* FLOATING ANIMATION */
+
+@keyframes multilateral-creature-float {
+
+    0% {
+
+        transform: translateY(0) rotate(-5deg);
+
+    }
+
+    50% {
+
+        transform: translateY(-15px) rotate(5deg);
+
+    }
+
+    100% {
+
+        transform: translateY(0) rotate(-5deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   20. CREATURE POSITIONS
+========================================================= */
+
+.decor-fish-one {
+
+    top: 8%;
+
+    left: 5%;
+
+    font-size: 35px;
+
+}
+
+
+.decor-fish-two {
+
+    top: 15%;
+
+    right: 6%;
+
+    font-size: 35px;
+
+    animation-delay: 1s;
+
+}
+
+
+.decor-jellyfish {
+
+    top: 45%;
+
+    left: 3%;
+
+    font-size: 35px;
+
+    animation-delay: 2s;
+
+}
+
+
+.decor-turtle {
+
+    top: 60%;
+
+    right: 5%;
+
+    font-size: 40px;
+
+    animation-delay: 1.5s;
+
+}
+
+
+.decor-octopus {
+
+    top: 62%;
+
+    left: 12%;
+
+    font-size: 38px;
+
+    animation-delay: 2.5s;
+
+}
+
+
+.decor-dolphin {
+
+    top: 38%;
+
+    right: 15%;
+
+    font-size: 38px;
+
+    animation-delay: 2s;
+
+}
+
+
+.decor-bubble-one {
+
+    top: 8%;
+
+    right: 30%;
+
+    font-size: 30px;
+
+    animation-delay: 0.5s;
+
+}
+
+
+.decor-bubble-two {
+
+    top: 40%;
+
+    right: 4%;
+
+    font-size: 30px;
+
+    animation-delay: 1.8s;
+
+}
+
+
+.decor-bubble-three {
+
+    top: 68%;
+
+    left: 40%;
+
+    font-size: 30px;
+
+    animation-delay: 3s;
+
+}
+
+
+.decor-starfish {
+
+    top: 72%;
+
+    left: 30%;
+
+    font-size: 35px;
+
+    animation-delay: 1.2s;
+
+}
+
+
+/* =========================================================
+   21. SAND FLOOR
+========================================================= */
+
+.multilateral-sand-floor {
+
+    position: absolute;
+
+    z-index: 6;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 100%;
+
+    height: 105px;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #F9DF9A 0%,
+
+            #F0C96D 45%,
+
+            #E4B35B 100%
+
+        );
+
+    border-radius:
+
+        48% 52% 0 0 /
+
+        18% 20% 0 0;
+
+}
+
+
+/* =========================================================
+   22. SHORELINE
+========================================================= */
+
+.multilateral-sand-floor::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 10px;
+
+    left: -5%;
+
+    width: 110%;
+
+    height: 35px;
+
+    background: #FCE6AC;
+
+    border-radius: 50%;
+
+}
+
+
+/* =========================================================
+   23. CORALS
+========================================================= */
+
+.multilateral-coral {
+
+    position: absolute;
+
+    bottom: 35px;
+
+    z-index: 7;
+
+    animation:
+
+        multilateral-sand-float 4s ease-in-out infinite;
+
+}
+
+
+.coral-one {
+
+    left: 3%;
+
+    font-size: 50px;
+
+}
+
+
+.coral-two {
+
+    left: 25%;
+
+    font-size: 44px;
+
+    animation-delay: 1s;
+
+}
+
+
+.coral-three {
+
+    right: 20%;
+
+    font-size: 45px;
+
+    animation-delay: 1.5s;
+
+}
+
+
+.coral-four {
+
+    right: 3%;
+
+    font-size: 50px;
+
+    animation-delay: 2s;
+
+}
+
+
+.coral-five {
+
+    left: 65%;
+
+    font-size: 45px;
+
+    animation-delay: 2.5s;
+
+}
+
+
+.coral-six {
+
+    left: 45%;
+
+    font-size: 42px;
+
+    animation-delay: 1.2s;
+
+}
+
+
+/* =========================================================
+   24. CREATURES ON SAND
+========================================================= */
+
+.multilateral-resting-creature {
+
+    position: absolute;
+
+    z-index: 8;
+
+    bottom: 10px;
+
+    animation:
+
+        multilateral-sand-float 4.5s ease-in-out infinite;
+
+}
+
+
+.crab-one {
+
+    left: 15%;
+
+    font-size: 30px;
+
+}
+
+
+.shell-one {
+
+    left: 35%;
+
+    font-size: 30px;
+
+    animation-delay: 1s;
+
+}
+
+
+.star-one {
+
+    right: 15%;
+
+    font-size: 30px;
+
+    animation-delay: 2s;
+
+}
+
+
+.shell-two {
+
+    right: 38%;
+
+    font-size: 30px;
+
+    animation-delay: 1.5s;
+
+}
+
+
+.crab-two {
+
+    right: 5%;
+
+    font-size: 32px;
+
+    animation-delay: 2.5s;
+
+}
+
+
+/* =========================================================
+   25. SAND FLOATING ANIMATION
+========================================================= */
+
+@keyframes multilateral-sand-float {
+
+    0% {
+
+        transform: translateY(0) rotate(-3deg);
+
+    }
+
+    50% {
+
+        transform: translateY(-6px) rotate(3deg);
+
+    }
+
+    100% {
+
+        transform: translateY(0) rotate(-3deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   26. RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+
+    .multilateral-page {
+
+        padding: 35px 3%;
+
+    }
+
+
+    .multilateral-ocean-box {
+
+        height: 700px;
+
+    }
+
+
+    .multilateral-card {
+
+        top: 20px;
+
+        left: 4%;
+
+        width: 92%;
+
+        height: 730px;
+
+    }
+
+
+    .multilateral-title {
+
+        font-size: 36px;
+
+    }
+
+
+    .multilateral-country {
+
+        font-size: 19px;
+
+        padding: 10px 18px;
+
+    }
+
+
+    .multilateral-picture-grid {
+
+        gap: 15px;
+
+        padding: 20px 10px 25px;
+
+    }
+
+
+    .multilateral-floating-description {
+
+        font-size: 19px;
+
+        line-height: 1.65;
+
+    }
+
+
+    .multilateral-back-text {
+
+        padding-bottom: 90px;
+
+    }
+
+
+}
+
+
+@media (max-width: 600px) {
+
+
+    .multilateral-page {
+
+        padding: 20px 3%;
+
+    }
+
+
+    .multilateral-ocean-box {
+
+        height: 650px;
+
+    }
+
+
+    .multilateral-card {
+
+        top: 15px;
+
+        left: 3%;
+
+        width: 94%;
+
+        height: 540px;
+
+    }
+
+
+    .multilateral-title {
+
+        font-size: 30px;
+
+    }
+
+
+    .multilateral-country {
+
+        font-size: 16px;
+
+        padding: 8px 12px;
+
+    }
+
+
+    .multilateral-picture-grid {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        padding: 15px 10px 20px;
+
+    }
+
+
+    .multilateral-photo {
+
+        width: 100%;
+
+        flex: 1;
+
+        min-height: 0;
+
+        border-width: 3px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .multilateral-back {
+
+        padding: 0 12px;
+
+    }
+
+
+    .multilateral-back-text {
+
+        width: 95%;
+
+        gap: 15px;
+
+        padding-bottom: 75px;
+
+    }
+
+
+    .multilateral-floating-description {
+
+        font-size: 15px;
+
+        line-height: 1.5;
+
+    }
+
+
+    .multilateral-sand-floor {
+
+        height: 85px;
+
+    }
+
+
+    .multilateral-coral {
+
+        font-size: 32px;
+
+    }
+
+
+    .multilateral-resting-creature {
+
+        font-size: 24px;
+
+    }
+
+
+    .multilateral-decoration {
+
+        font-size: 25px;
+
+    }
+
+
+}
+
+
+/* =========================================================
+   MULTILATERAL PHOTOS — ZOOM + IMAGE TRANSITION REFINEMENT
+   ADDITION ONLY
+========================================================= */
+
+
+/* KEEP THE FRONT SIDE VISIBLE WHILE HOVERING OVER A PHOTO */
+
+.multilateral-ocean-box:has(.multilateral-photo:hover)
+.multilateral-card {
+
+    transform: rotateY(0deg);
+
+}
+
+
+/* SMOOTH PHOTO ZOOM */
+
+.multilateral-photo img {
+
+    transition:
+
+        opacity 0.7s ease-in-out,
+
+        transform 0.65s ease-in-out;
+
+}
+
+
+/* ZOOM BOTH PHOTOS ON HOVER */
+
+.multilateral-photo:hover img {
+
+    transform: scale(1.12);
+
+}
+
+
+/* SMOOTH CROSSFADE TO THE SECOND PHOTO */
+
+.multilateral-photo .photo-hover {
+
+    opacity: 0;
+
+}
+
+
+.multilateral-photo:hover .photo-hover {
+
+    opacity: 1;
+
+}
+
+
+.multilateral-photo:hover .photo-original {
+
+    opacity: 0;
+
+}

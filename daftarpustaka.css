@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius:wght@400;700&family=Satisfy&display=swap');
+
+:root {
+  --turquoise: #00cbd2;
+  --deep-teal: #075469;
+  --glow-yellow: #ffe45e;
+  --sand-light: #ffe7a6;
+  --sand-dark: #edb967;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--deep-teal);
+  font-family: 'Delius', cursive;
+  background: var(--turquoise);
+}
+
+.bibliography-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 3vw, 38px);
+  background: linear-gradient(180deg, #00cbd2 0%, #19dce0 100%);
+}
+
+.bibliography-panel {
+  position: relative;
+  isolation: isolate;
+  width: min(88vw, 1480px);
+  min-height: clamp(680px, 76vh, 860px);
+  margin-inline: auto;
+  padding: clamp(34px, 5vw, 68px) clamp(24px, 6vw, 92px) 165px;
+  overflow: hidden;
+  border: 9px solid var(--glow-yellow);
+  border-radius: 28px;
+  background: var(--turquoise);
+  box-shadow:
+    0 0 12px #fff59a,
+    0 0 28px rgb(255 226 76 / 90%),
+    0 0 55px rgb(255 215 60 / 50%),
+    0 18px 42px rgb(0 73 93 / 24%);
+  transform: scale(1);
+  transition: transform 420ms cubic-bezier(.2, .75, .25, 1), box-shadow 420ms ease;
+}
+
+.bibliography-panel:hover {
+  transform: scale(1.025);
+  box-shadow:
+    0 0 16px #fff59a,
+    0 0 38px rgb(255 226 76 / 95%),
+    0 0 72px rgb(255 215 60 / 62%),
+    0 22px 48px rgb(0 73 93 / 30%);
+}
+
+/* Ocean waves */
+.water {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: linear-gradient(180deg, #10cbd5 0%, #27d2dc 48%, #0caed0 100%);
+}
+
+.wave {
+  position: absolute;
+  width: 220%;
+  height: 68%;
+  border-radius: 45% 55% 50% 50% / 35% 40% 60% 65%;
+  pointer-events: none;
+}
+
+.wave-one {
+  top: 7%;
+  left: -55%;
+  background: #78e9ff;
+  opacity: .72;
+  transform: rotate(-8deg);
+  animation: wave-one 12s ease-in-out infinite alternate;
+}
+
+.wave-two {
+  top: 20%;
+  left: -60%;
+  background: #43cbea;
+  opacity: .7;
+  transform: rotate(5deg);
+  animation: wave-two 10s ease-in-out infinite alternate;
+}
+
+.wave-three {
+  top: 35%;
+  left: -65%;
+  background: #17b7e8;
+  opacity: .58;
+  transform: rotate(-6deg);
+  animation: wave-three 14s ease-in-out infinite alternate;
+}
+
+/* Split title */
+.page-title {
+  position: relative;
+  z-index: 5;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto clamp(34px, 5vh, 58px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 2vw, 22px);
+  text-align: center;
+  animation: title-float 3.2s ease-in-out infinite;
+  transform: scale(1);
+  transition: transform 320ms ease, filter 320ms ease;
+  transform-origin: center;
+}
+
+.page-title:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 22px rgb(255 255 190 / 95%));
+}
+
+.page-title__script {
+  color: var(--deep-teal);
+  font: 400 clamp(4.2rem, 9vw, 8.5rem)/1 'Satisfy', cursive;
+  text-shadow:
+    0 2px 0 #f1fff4,
+    0 0 5px #fff,
+    0 0 12px #f5ffb5,
+    0 0 24px #eaff7c,
+    0 0 42px #baff72,
+    0 0 72px rgb(190 255 126 / 95%),
+    0 0 110px rgb(153 255 218 / 90%);
+  animation: script-glow 2.7s ease-in-out infinite alternate;
+}
+
+.page-title__label {
+  display: inline-block;
+  padding: .2em .42em .25em;
+  border: 4px solid rgb(255 248 169 / 95%);
+  border-radius: 18px;
+  background: var(--deep-teal);
+  color: #fff7bd;
+  font: 700 clamp(2rem, 4.5vw, 4rem)/1.05 'Delius', cursive;
+  white-space: nowrap;
+  box-shadow:
+    0 0 12px #ffe45e,
+    0 0 26px rgb(255 228 94 / 88%),
+    inset 0 0 14px rgb(255 228 94 / 18%);
+}
+
+/* Bibliography */
+.reference-list {
+  position: relative;
+  z-index: 4;
+  width: min(100%, 1320px);
+  margin: 0 auto;
+  padding: clamp(20px, 3vw, 34px) clamp(22px, 4vw, 54px) clamp(20px, 3vw, 34px) clamp(54px, 6vw, 82px);
+  border: 4px solid rgb(255 244 143 / 60%);
+  border-radius: 22px;
+  background: rgb(3 109 145 / 32%);
+  list-style: decimal;
+}
+
+.reference-list li {
+  padding: 8px;
+  color: #fffef0;
+  font-size: clamp(1.05rem, 1.55vw, 1.42rem);
+  font-weight: 700;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+  text-shadow:
+    0 0 3px #ffd447,
+    0 0 8px #ffd447,
+    0 0 16px rgb(255 212 71 / 90%);
+  animation: text-float 4.8s ease-in-out infinite;
+}
+
+.reference-list li:nth-child(2) { animation-delay: -1s; }
+.reference-list li:nth-child(3) { animation-delay: -2s; }
+.reference-list li:nth-child(4) { animation-delay: -3s; }
+.reference-list li:nth-child(5) { animation-delay: -4s; }
+.reference-list li + li { margin-top: 7px; }
+.reference-list em { font-style: italic; }
+
+.reference-list a {
+  color: #fff6a8;
+  text-decoration-color: rgb(255 246 168 / 85%);
+  text-underline-offset: 3px;
+}
+
+.reference-list a:hover,
+.reference-list a:focus-visible {
+  color: #fff;
+}
+
+/* Sea creatures and corals */
+.sea-life {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  pointer-events: none;
+}
+
+.creature {
+  position: absolute;
+  display: block;
+  font-size: clamp(25px, 3vw, 42px);
+  filter: drop-shadow(0 4px 3px rgb(0 73 93 / 30%));
+  animation: creature-float 4.5s ease-in-out infinite;
+}
+
+.fish-a { top: 26%; left: 3.5%; animation-delay: -.5s; }
+.turtle { top: 48%; right: 3.5%; animation-delay: -2s; }
+.jelly { top: 64%; left: 4%; animation-delay: -1.2s; }
+.fish-b { top: 23%; right: 8%; animation-delay: -2.7s; }
+.clown-fish { top: 39%; left: 2%; animation-delay: -1.7s; }
+.whale { top: 59%; right: 6%; animation-delay: -3.1s; }
+.crab { bottom: 13%; left: 18%; animation: sand-float 4.8s ease-in-out infinite; }
+.octopus { top: 71%; right: 17%; animation-delay: -2.2s; }
+.fish-c { top: 31%; right: 2.5%; animation-delay: -3.8s; }
+.bubbles { top: 44%; left: 7%; animation-delay: -3.3s; }
+.shell { bottom: 7%; right: 27%; animation: sand-float 5s ease-in-out infinite; }
+.coral { bottom: 6%; animation: sand-float 5.7s ease-in-out infinite; }
+.coral-a { left: 8%; }
+.coral-b { right: 8%; animation-delay: -2.1s; }
+.coral-c { left: 31%; bottom: 9%; animation-delay: -3.2s; }
+.coral-d { right: 40%; bottom: 5%; animation-delay: -1.6s; }
+.coral-e { right: 18%; bottom: 11%; animation-delay: -4.1s; }
+.star { bottom: 7%; left: 48%; animation: sand-float 4.6s ease-in-out infinite; }
+
+/* Sand */
+.sand {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 125px;
+  background: linear-gradient(180deg, var(--sand-light), #f5ca78 55%, var(--sand-dark));
+  clip-path: polygon(
+    0 12%, 12% 7%, 25% 15%, 39% 8%,
+    55% 14%, 69% 7%, 84% 13%, 100% 8%,
+    100% 100%, 0 100%
+  );
+}
+
+.sand::after {
+  content: '🐚　🪸　🐚　⭐　🐚　🪸　🐚';
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  width: max-content;
+  transform: translateX(-50%);
+  font-size: 25px;
+  letter-spacing: 5px;
+}
+
+/* Animations */
+@keyframes wave-one {
+  from { transform: translateX(-4%) rotate(-8deg); }
+  to { transform: translateX(5%) rotate(5deg); }
+}
+
+@keyframes wave-two {
+  from { transform: translateX(5%) rotate(5deg); }
+  to { transform: translateX(-5%) rotate(-6deg); }
+}
+
+@keyframes wave-three {
+  from { transform: translateX(-3%) rotate(-6deg); }
+  to { transform: translateX(6%) rotate(4deg); }
+}
+
+@keyframes title-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -9px; }
+}
+
+@keyframes script-glow {
+  from { filter: drop-shadow(0 0 7px rgb(242 255 155 / 85%)); }
+  to {
+    filter:
+      drop-shadow(0 0 20px rgb(255 255 178 / 100%))
+      drop-shadow(0 0 34px rgb(153 255 218 / 82%));
+  }
+}
+
+@keyframes text-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes creature-float {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-12px) rotate(5deg); }
+}
+
+@keyframes sand-float {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-6px) rotate(3deg); }
+}
+
+/* Mobile layout */
+@media (max-width: 700px) {
+  .bibliography-page {
+    padding: 10px;
+  }
+
+  .bibliography-panel {
+    width: calc(100vw - 20px);
+    min-height: calc(100vh - 20px);
+    padding: 38px 15px 145px;
+    border-width: 6px;
+    border-radius: 21px;
+  }
+
+  .page-title {
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+
+  .page-title__script {
+    font-size: clamp(3.5rem, 16vw, 5.3rem);
+  }
+
+  .page-title__label {
+    padding: .18em .35em .22em;
+    border-width: 3px;
+    border-radius: 12px;
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
+  }
+
+  .reference-list {
+    padding: 18px 13px 18px 42px;
+    border-radius: 16px;
+  }
+
+  .reference-list li {
+    padding: 7px 4px;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .fish-a { left: 1%; top: 24%; }
+  .fish-b { right: 2%; top: 17%; }
+  .turtle { right: 1%; top: 52%; }
+  .jelly { left: 1%; top: 69%; }
+  .clown-fish { left: 1%; top: 38%; }
+  .whale { right: 2%; top: 61%; }
+  .octopus { right: 3%; top: 75%; }
+  .fish-c { right: 1%; top: 30%; }
+  .crab { left: 13%; }
+  .coral-c { left: 25%; }
+  .coral-d { right: 35%; }
+  .coral-e { right: 16%; }
+
+  .sand {
+    height: 100px;
+  }
+
+  .sand::after {
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .bibliography-panel:hover .page-title {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
